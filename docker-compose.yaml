@@ -4,7 +4,7 @@ services:
       context: ./php # Indica onde está o arquivo Dockerfile
       dockerfile: Dockerfile
 
-    container_name: marcius-php # Apelido para o container
+    container_name: flavia-php # Apelido para o container
     restart: always
     volumes:
       - ./web:/var/www/html/ # Irá copiar o conteúdo da pasta src para o container
@@ -20,7 +20,7 @@ services:
 
   postgres:
     image: postgres:12
-    container_name: marcius-pgsql
+    container_name: flavia-pgsql
     restart: always
     environment:
       POSTGRES_PASSWORD: postdba
@@ -34,7 +34,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: marcius-pgadmin
+    container_name: flavia-pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: postgres@servidor.com
       PGADMIN_DEFAULT_PASSWORD: postdba
@@ -47,7 +47,7 @@ services:
 
   mysql:
     image: mysql:5.7 # A versão 8.0 está com instabilidades
-    container_name: marcius-mysql
+    container_name: flavia-mysql
     restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
     volumes:
       - ./mysql:/var/lib/mysql
@@ -64,7 +64,7 @@ services:
       context: ./phpmyadmin
       dockerfile: Dockerfile
 
-    container_name: marcius-phpmyadmin
+    container_name: flavia-phpmyadmin
     restart: always
     volumes:
       - /sessions
